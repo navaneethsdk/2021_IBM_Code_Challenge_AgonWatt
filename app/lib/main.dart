@@ -1,3 +1,4 @@
+import 'package:app/locality.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -34,10 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
       'Dash 1',
       style: optionStyle,
     ),
-    Text(
-      'Dash 2',
-      style: optionStyle,
-    ),
+    LocalityPage(),
     Text(
       'Dash 3',
       style: optionStyle,
