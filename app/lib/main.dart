@@ -1,3 +1,4 @@
+import 'package:app/screens/dashboard.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -29,11 +30,8 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Dash 1',
-      style: optionStyle,
-    ),
+  static List<Widget> _widgetOptions = <Widget>[
+    MainPage(),
     Text(
       'Dash 2',
       style: optionStyle,
@@ -53,7 +51,13 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        elevation: 2.0,
+        backgroundColor: Colors.white,
+        title: Text('AgonWatt',
+            style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w700,
+                fontSize: 30.0)),
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
