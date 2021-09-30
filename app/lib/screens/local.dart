@@ -102,8 +102,9 @@ class _LocalPageState extends State<LocalPage> {
                     ),
                     Image.asset(
                       'assets/images/local.png',
-                      height: 120,
-                      width: 200,
+                      height: 230,
+                      width: 22g0,
+                      fit: BoxFit.fill,
                     ),
                   ],
                 ),
