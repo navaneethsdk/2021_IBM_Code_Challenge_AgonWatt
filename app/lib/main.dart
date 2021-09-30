@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'AgonWatt',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         backgroundColor: Colors.white,
@@ -51,7 +51,6 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        leading: SizedBox(),
         title: Text(
           widget.title,
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.w300),
@@ -84,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.white,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.dashboard),
+            icon: Icon(Icons.show_chart),
             label: 'Consumption',
           ),
           BottomNavigationBarItem(
