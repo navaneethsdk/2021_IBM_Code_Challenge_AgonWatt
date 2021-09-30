@@ -2,6 +2,7 @@ import 'package:app/login_screen.dart';
 import 'package:app/profile_page.dart';
 import 'package:app/locality.dart';
 import 'package:app/regional.dart';
+import 'package:app/screens/dashboard.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -36,10 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Dash 1',
-      style: optionStyle,
-    ),
+    MainPage(),
     LocalityPage(),
     RegionalPage(),
   ];
@@ -53,6 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         leading: SizedBox(),
         title: Text(
           widget.title,
