@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         backgroundColor: Colors.white,
+        primaryColor: Colors.blue[700],
       ),
       debugShowCheckedModeBanner: false,
       home: LoginScreen(),
@@ -35,9 +36,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
   static List<Widget> _widgetOptions = <Widget>[
-   Dashboard(),
-   LocalPage(),
-   CityPage(),
+    Dashboard(),
+    LocalPage(),
+    CityPage(),
   ];
   void _onItemTapped(int index) {
     setState(() {
@@ -83,20 +84,20 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.white,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Dash 1',
+            icon: Icon(Icons.dashboard),
+            label: 'Consumption',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.show_chart_sharp),
+            icon: Icon(Icons.leaderboard),
             label: 'Local',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.leaderboard),
-            label: 'Regional',
+            label: 'City',
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Color.fromRGBO(0, 0, 128, 1),
+        selectedItemColor: Color.fromRGBO(52, 68, 217, 1),
         onTap: _onItemTapped,
       ),
     );

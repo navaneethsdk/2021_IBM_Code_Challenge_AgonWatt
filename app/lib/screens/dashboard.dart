@@ -17,10 +17,10 @@ class _MainPageState extends State<Dashboard> {
   ];
 
   final List<PiData> chartData = [
-    PiData('Ac', 10),
-    PiData('fridge', 30),
-    PiData('Tv', 20),
-    PiData('Fan', 40),
+    PiData('Ac', 100),
+    PiData('Fridge', 80),
+    PiData('Tv', 60),
+    PiData('Fan', 70),
   ];
   final List<List<double>> charts = [
     [15, 10, 30, 24, 50],
@@ -68,7 +68,7 @@ class _MainPageState extends State<Dashboard> {
   ];
 
   static final List<String> chartDropdownItems = [
-    'last 5 month',
+    'Last 5 month',
     'Last Year',
     'Last 5 year'
   ];
@@ -99,16 +99,18 @@ class _MainPageState extends State<Dashboard> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text('Usage', style: TextStyle(color: Colors.green)),
-                          Text('\12 KWh',
+                          Text('244 KWh',
                               style: TextStyle(
                                   color: Colors.black,
-                                  fontWeight: FontWeight.w700,
+                                  fontWeight: FontWeight.w300,
                                   fontSize: 34.0)),
+                          Text('Your Consumption',
+                              style: TextStyle(color: Colors.black54)),
                         ],
                       ),
                       DropdownButton(
                           isDense: true,
+                          underline: SizedBox(),
                           value: actualDropdown,
                           onChanged: (String value) => setState(() {
                                 actualDropdown = value;
@@ -120,7 +122,7 @@ class _MainPageState extends State<Dashboard> {
                               value: title,
                               child: Text(title,
                                   style: TextStyle(
-                                      color: Colors.blue,
+                                      color: Colors.black54,
                                       fontWeight: FontWeight.w400,
                                       fontSize: 14.0)),
                             );
@@ -128,70 +130,17 @@ class _MainPageState extends State<Dashboard> {
                     ],
                   ),
                   Padding(padding: EdgeInsets.only(bottom: 4.0)),
-                  // LineChart(
-                  //   LineChartData(
-                  //     minX: 0,
-                  //     maxX: 11,
-                  //     minY: 0,
-                  //     maxY: 6,
-                  //     // titlesData: LineTitles.getTitleData(),
-                  //     // gridData: FlGridData(
-                  //     //   show: true,
-                  //     //   getDrawingHorizontalLine: (value) {
-                  //     //     return FlLine(
-                  //     //       color: const Color(0xff37434d),
-                  //     //       strokeWidth: 1,
-                  //     //     );
-                  //     //   },
-                  //     //   drawVerticalLine: true,
-                  //     //   getDrawingVerticalLine: (value) {
-                  //     //     return FlLine(
-                  //     //       color: const Color(0xff37434d),
-                  //     //       strokeWidth: 1,
-                  //     //     );
-                  //     //   },
-                  //     // ),
-                  //     // borderData: FlBorderData(
-                  //     //   show: true,
-                  //     //   border: Border.all(
-                  //     //       color: const Color(0xff37434d), width: 1),
-                  //     // ),
-                  //     lineBarsData: [
-                  //       LineChartBarData(
-                  //         spots: [
-                  //           FlSpot(0, 3),
-                  //           FlSpot(2.6, 2),
-                  //           FlSpot(4.9, 5),
-                  //           FlSpot(6.8, 2.5),
-                  //           FlSpot(8, 4),
-                  //           FlSpot(9.5, 3),
-                  //           FlSpot(11, 4),
-                  //         ],
-                  //         isCurved: true,
-                  //         colors: gradientColors,
-                  //         barWidth: 5,
-                  //         // dotData: FlDotData(show: false),
-                  //         belowBarData: BarAreaData(
-                  //           show: true,
-                  //           colors: gradientColors
-                  //               .map((color) => color.withOpacity(0.3))
-                  //               .toList(),
-                  //         ),
-                  //       ),
-                  //     ],
-                  //   ),
-                  // )
                   Sparkline(
                     data: charts[actualChart],
                     lineWidth: 2.0,
                     lineColor: Colors.greenAccent,
                     pointsMode: PointsMode.all,
-                    pointSize: 4,
+                    pointSize: 7,
                     fillMode: FillMode.below,
                     fillGradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
-                        colors: [Colors.amber[200], Colors.amber[400]]),
+                        colors: [Colors.green[200], Colors.green[400]]),
                   )
                 ],
               )),
@@ -207,23 +156,26 @@ class _MainPageState extends State<Dashboard> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text('Total consumption so far',
-                          style: TextStyle(color: Colors.blueAccent)),
-                      Text('265 KWh',
+                      Text('1527 KWh',
                           style: TextStyle(
                               color: Colors.black,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 34.0))
+                              fontWeight: FontWeight.w300,
+                              fontSize: 34.0)),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text('Total Consumption So Far (5 Month)',
+                          style: TextStyle(color: Colors.black54)),
                     ],
                   ),
                   Material(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(24.0),
+                      color: Colors.green[500],
+                      borderRadius: BorderRadius.circular(8.0),
                       child: Center(
                           child: Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Icon(Icons.timeline,
-                            color: Colors.white, size: 30.0),
+                            color: Colors.white, size: 40.0),
                       )))
                 ]),
           ),
@@ -261,16 +213,26 @@ class _MainPageState extends State<Dashboard> {
                             color: Colors.white, size: 30.0),
                       )),
                   Padding(padding: EdgeInsets.only(bottom: 16.0)),
-                  Text('perfomance',
+                  Text('Perfomance',
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w700,
                           fontSize: 20.0)),
                   Padding(
                     padding: const EdgeInsets.only(top: 13),
-                    child: Text(
-                        'Your Consumption is 26 % higher than previous month ',
-                        style: TextStyle(color: Colors.black45)),
+                    child: RichText(
+                      text: TextSpan(
+                        text: 'Your Consumption is ',
+                        style: DefaultTextStyle.of(context).style,
+                        children: <TextSpan>[
+                          TextSpan(
+                              text: '26%',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 18)),
+                          TextSpan(text: ' higher than the previous month'),
+                        ],
+                      ),
+                    ),
                   ),
                 ]),
           ),
@@ -286,19 +248,12 @@ class _MainPageState extends State<Dashboard> {
     ));
   }
 
-  Widget _buildTile(Widget child, {Function() onTap}) {
+  Widget _buildTile(Widget child) {
     return Material(
         elevation: 14.0,
         borderRadius: BorderRadius.circular(12.0),
         shadowColor: Color(0x802196F3),
-        child: InkWell(
-            // Do onTap() if it isn't null, otherwise do print()
-            onTap: onTap != null
-                ? () => onTap()
-                : () {
-                    print('Not set yet');
-                  },
-            child: child));
+        child: child);
   }
 }
 
