@@ -1,5 +1,7 @@
 import 'package:app/login_screen.dart';
 import 'package:app/profile_page.dart';
+import 'package:app/locality.dart';
+import 'package:app/regional.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +15,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        backgroundColor: Colors.white,
       ),
+      debugShowCheckedModeBanner: false,
       home: LoginScreen(),
     );
   }
@@ -36,14 +40,8 @@ class _MyHomePageState extends State<MyHomePage> {
       'Dash 1',
       style: optionStyle,
     ),
-    Text(
-      'Dash 2',
-      style: optionStyle,
-    ),
-    Text(
-      'Dash 3',
-      style: optionStyle,
-    ),
+    LocalityPage(),
+    RegionalPage(),
   ];
   void _onItemTapped(int index) {
     setState(() {
@@ -55,38 +53,53 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        leading: SizedBox(),
+        title: Text(
+          widget.title,
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w300),
+        ),
+        backgroundColor: Colors.white,
+        elevation: 0,
         actions: [
-          ElevatedButton(
-            onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => ProfilePage(),
-              ));
+          InkWell(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => ProfilePage(),
+                ),
+              );
             },
-            child: Text("GO"),
-          )
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CircleAvatar(
+                radius: 25.0,
+                backgroundImage: AssetImage('assets/images/1.jpg'),
+              ),
+            ),
+          ),
         ],
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Dash 1',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Dash 2',
+            icon: Icon(Icons.show_chart_sharp),
+            label: 'Local',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'Dash 3',
+            icon: Icon(Icons.leaderboard),
+            label: 'Regional',
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Color.fromRGBO(0, 0, 128, 1),
         onTap: _onItemTapped,
       ),
     );
