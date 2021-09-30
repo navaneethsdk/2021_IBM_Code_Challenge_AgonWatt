@@ -1,8 +1,13 @@
 # AgonWatt
 Mobile Application that aims to reduce carbon footprint by incentivizing lesser electricity consumption.
 ```
-Theme: Sustainable Developement
+Theme: Sustainable Developement for better tomorrow
 ```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="./images/Dash.jpeg" alt="drawing" width="200"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="./images/LB1.jpg" alt="drawing" width="200"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="./images/LB2.jpg" alt="drawing" width="200"/>
+
 ## Problem Statement
 Globally, the primary source of greenhouse gas emissions is electricity and heat that accounts for 31% of total consumption. If left unchecked, this would further deteriorate the condition and pose an existential threat to every organism in the planet. Our objective is to create an application that can help people reduce their carbon footprint and do their part to combat climate change.
 
@@ -10,7 +15,7 @@ Globally, the primary source of greenhouse gas emissions is electricity and heat
 End user consists of people who wish to reduce their energy bills and inturn their carbon footprints.
 
 ## Architecture
-![Architecture](./AgonWatt.png)
+![Architecture](./images/AgonWatt.png)
 
 
 Three level Architecture:
