@@ -1,9 +1,11 @@
+import 'package:app/screens/titles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_sparkline/flutter_sparkline.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+import 'package:fl_chart/fl_chart.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -11,6 +13,10 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  final List<Color> gradientColors = [
+    const Color(0xff23b6e6),
+    const Color(0xff02d39a),
+  ];
   final List<PiData> chartData = [
     PiData('Ac', 10),
     PiData('fridge', 30),
@@ -142,18 +148,71 @@ class _MainPageState extends State<MainPage> {
                     ],
                   ),
                   Padding(padding: EdgeInsets.only(bottom: 4.0)),
-                  Sparkline(
-                    data: charts[actualChart],
-                    lineWidth: 2.0,
-                    lineColor: Colors.greenAccent,
-                    pointsMode: PointsMode.all,
-                    pointSize: 4,
-                    fillMode: FillMode.below,
-                    fillGradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [Colors.amber[200], Colors.amber[400]]),
+                  LineChart(
+                    LineChartData(
+                      minX: 0,
+                      maxX: 11,
+                      minY: 0,
+                      maxY: 6,
+                      // titlesData: LineTitles.getTitleData(),
+                      // gridData: FlGridData(
+                      //   show: true,
+                      //   getDrawingHorizontalLine: (value) {
+                      //     return FlLine(
+                      //       color: const Color(0xff37434d),
+                      //       strokeWidth: 1,
+                      //     );
+                      //   },
+                      //   drawVerticalLine: true,
+                      //   getDrawingVerticalLine: (value) {
+                      //     return FlLine(
+                      //       color: const Color(0xff37434d),
+                      //       strokeWidth: 1,
+                      //     );
+                      //   },
+                      // ),
+                      // borderData: FlBorderData(
+                      //   show: true,
+                      //   border: Border.all(
+                      //       color: const Color(0xff37434d), width: 1),
+                      // ),
+                      lineBarsData: [
+                        LineChartBarData(
+                          spots: [
+                            FlSpot(0, 3),
+                            FlSpot(2.6, 2),
+                            FlSpot(4.9, 5),
+                            FlSpot(6.8, 2.5),
+                            FlSpot(8, 4),
+                            FlSpot(9.5, 3),
+                            FlSpot(11, 4),
+                          ],
+                          isCurved: true,
+                          colors: gradientColors,
+                          barWidth: 5,
+                          // dotData: FlDotData(show: false),
+                          belowBarData: BarAreaData(
+                            show: true,
+                            colors: gradientColors
+                                .map((color) => color.withOpacity(0.3))
+                                .toList(),
+                          ),
+                        ),
+                      ],
+                    ),
                   )
+                  // Sparkline(
+                  //   data: charts[actualChart],
+                  //   lineWidth: 2.0,
+                  //   lineColor: Colors.greenAccent,
+                  //   pointsMode: PointsMode.all,
+                  //   pointSize: 4,
+                  //   fillMode: FillMode.below,
+                  //   fillGradient: LinearGradient(
+                  //       begin: Alignment.topCenter,
+                  //       end: Alignment.bottomCenter,
+                  //       colors: [Colors.amber[200], Colors.amber[400]]),
+                  // )
                 ],
               )),
         ),
