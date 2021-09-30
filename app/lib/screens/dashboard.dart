@@ -17,10 +17,10 @@ class _MainPageState extends State<Dashboard> {
   ];
 
   final List<PiData> chartData = [
-    PiData('Ac', 100),
-    PiData('Fridge', 80),
-    PiData('Tv', 60),
-    PiData('Fan', 70),
+    PiData('Ac', 100, Colors.blue[50]),
+    PiData('Fridge', 60, Colors.blue[200]),
+    PiData('Tv', 30, Colors.blue[400]),
+    PiData('Fan', 54, Colors.blue[700]),
   ];
   final List<List<double>> charts = [
     [0, 350, 450, 250, 320, 244],
@@ -193,6 +193,7 @@ class _MainPageState extends State<Dashboard> {
                         dataSource: chartData,
                         xValueMapper: (PiData data, _) => data.device,
                         yValueMapper: (PiData data, _) => data.usage,
+                        pointColorMapper: (PiData data, _) => data.color,
                         dataLabelSettings: DataLabelSettings(isVisible: true),
                         enableTooltip: true,
                       )
@@ -299,7 +300,8 @@ class _MainPageState extends State<Dashboard> {
 }
 
 class PiData {
-  PiData(this.device, this.usage);
+  PiData(this.device, this.usage, this.color);
   final String device;
   final int usage;
+  final Color color;
 }
