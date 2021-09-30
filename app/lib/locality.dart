@@ -1,11 +1,22 @@
-import 'dart:math';
 import 'package:app/data/local.dart';
 import 'package:app/fading.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class LocalityPage extends StatelessWidget {
+class LocalityPage extends StatefulWidget {
   const LocalityPage({Key key}) : super(key: key);
+
+  @override
+  _LocalityPageState createState() => _LocalityPageState();
+}
+
+class _LocalityPageState extends State<LocalityPage> {
+  String dropdownvalue = '5';
+  var items = ['1', '5', '10', '15'];
+  @override
+  void setState(VoidCallback fn) {
+    super.setState(fn);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +25,19 @@ class LocalityPage extends StatelessWidget {
     for (var dataJson in datasJson) {
       data.add(Data.fromJson(dataJson));
     }
-    data.sort((b, a) => a.y.compareTo(b.y));
-    List<Data> local =
-        data.where((element) => element.locality == data[1].locality).toList();
+    List<Data> local;
+    int intddv = int.parse(dropdownvalue);
+    intddv == 1
+        ? local = data.sublist(0, 3)
+        : intddv == 5
+            ? local = data.sublist(0, 6)
+            : intddv == 10
+                ? local = data.sublist(0, 9)
+                : local = data;
+
+    local.sort((b, a) => a.y.compareTo(b.y));
+    var avg = local.map((m) => m.tu).reduce((a, b) => a + b) / local.length;
+
     return Scaffold(
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
@@ -33,11 +54,48 @@ class LocalityPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Local Leaderboard\n${local[0].locality}",
+                            "Local Leaderboard",
                             style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 20,
                                 fontWeight: FontWeight.w500),
+                          ),
+                          DropdownButton(
+                            underline: SizedBox(),
+                            value: dropdownvalue,
+                            icon: Icon(Icons.keyboard_arrow_down),
+                            items: items.map((String items) {
+                              return DropdownMenuItem(
+                                  value: items, child: Text(items + " Km "));
+                            }).toList(),
+                            onChanged: (String newValue) {
+                              setState(() {
+                                dropdownvalue = newValue;
+                              });
+                            },
+                          ),
+                          Card(
+                            elevation: 4.0,
+                            child: Column(
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.fromLTRB(16, 16, 16, 5),
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    avg.round().toString() + " KWh",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 25,
+                                        fontWeight: FontWeight.w300),
+                                  ),
+                                ),
+                                Container(
+                                  padding: EdgeInsets.all(10.0),
+                                  alignment: Alignment.centerLeft,
+                                  child: Text("Average Consumption"),
+                                ),
+                              ],
+                            ),
                           ),
                           Text(
                             "\nAugust 2021",
@@ -46,6 +104,9 @@ class LocalityPage extends StatelessWidget {
                                 fontSize: 20,
                                 fontWeight: FontWeight.w300),
                           ),
+                          SizedBox(
+                            height: 15,
+                          )
                         ],
                       ),
                     ),
@@ -70,36 +131,29 @@ class LocalityPage extends StatelessWidget {
                               color: Color.fromRGBO(64, 75, 96, .03)),
                           padding: EdgeInsets.all(5),
                           child: ListTile(
-                            leading:
-                                //  Row(
-                                // children: [
-                                //   Text(
-                                //     "${index + 1}  ",
-                                //     style: TextStyle(
-                                //       color: Colors.black,
-                                //       fontSize: 20,
-                                //     ),
-                                //   ),
-                                CircleAvatar(
+                            leading: CircleAvatar(
                               radius: 25.0,
                               backgroundImage: AssetImage(
                                   'assets/images/${((index + 1) % 10) == 0 ? 1 : (index + 1) % 10}.jpg'),
-                            ),
-                            //   ],
-                            // ),
-                            trailing: Text(
-                              local[index].y.toString(),
-                              style: TextStyle(
-                                  color: Colors.blue[900],
-                                  fontSize: 20,
-                                  fontWeight: index < 3
-                                      ? FontWeight.w500
-                                      : FontWeight.normal),
                             ),
                             title: Text(
                               "${index + 1}. " + local[index].name,
                               style: TextStyle(
                                   fontSize: index < 3 ? 20 : 18,
+                                  fontWeight: index < 3
+                                      ? FontWeight.w500
+                                      : FontWeight.normal),
+                            ),
+                            subtitle: Text(
+                              local[index].tu.toString() + " KWh",
+                              style: TextStyle(
+                                  fontSize: 12, fontWeight: FontWeight.normal),
+                            ),
+                            trailing: Text(
+                              local[index].y.toString(),
+                              style: TextStyle(
+                                  color: Colors.blue[900],
+                                  fontSize: 20,
                                   fontWeight: index < 3
                                       ? FontWeight.w500
                                       : FontWeight.normal),

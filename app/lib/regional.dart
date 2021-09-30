@@ -20,7 +20,8 @@ class RegionalPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        child: Column(
+          child: Fading(
+        Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
@@ -32,7 +33,7 @@ class RegionalPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Local Leaderboard\n${local[0].locality}",
+                        "Regional Leaderboard\n${local[0].locality}",
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 20,
@@ -69,36 +70,29 @@ class RegionalPage extends StatelessWidget {
                           BoxDecoration(color: Color.fromRGBO(64, 75, 96, .03)),
                       padding: EdgeInsets.all(5),
                       child: ListTile(
-                        leading:
-                            //  Row(
-                            // children: [
-                            //   Text(
-                            //     "${index + 1}  ",
-                            //     style: TextStyle(
-                            //       color: Colors.black,
-                            //       fontSize: 20,
-                            //     ),
-                            //   ),
-                            CircleAvatar(
+                        leading: CircleAvatar(
                           radius: 25.0,
                           backgroundImage: AssetImage(
                               'assets/images/${((index + 1) % 10) == 0 ? 1 : (index + 1) % 10}.jpg'),
-                        ),
-                        //   ],
-                        // ),
-                        trailing: Text(
-                          local[index].y.toString(),
-                          style: TextStyle(
-                              color: Colors.blue[900],
-                              fontSize: 20,
-                              fontWeight: index < 3
-                                  ? FontWeight.w500
-                                  : FontWeight.normal),
                         ),
                         title: Text(
                           "${index + 1}. " + local[index].name,
                           style: TextStyle(
                               fontSize: index < 3 ? 20 : 18,
+                              fontWeight: index < 3
+                                  ? FontWeight.w500
+                                  : FontWeight.normal),
+                        ),
+                        subtitle: Text(
+                          local[index].tu.toString() + " KWh",
+                          style: TextStyle(
+                              fontSize: 12, fontWeight: FontWeight.normal),
+                        ),
+                        trailing: Text(
+                          local[index].y.toString(),
+                          style: TextStyle(
+                              color: Colors.blue[900],
+                              fontSize: 20,
                               fontWeight: index < 3
                                   ? FontWeight.w500
                                   : FontWeight.normal),
@@ -109,7 +103,7 @@ class RegionalPage extends StatelessWidget {
                 }),
           ],
         ),
-      ),
+      )),
     );
   }
 }
