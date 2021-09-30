@@ -1,11 +1,11 @@
 
+import 'package:app/components/fading.dart';
 import 'package:app/data/local.dart';
-import 'package:app/fading.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class RegionalPage extends StatelessWidget {
-  const RegionalPage({Key key}) : super(key: key);
+class CityPage extends StatelessWidget {
+  const CityPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

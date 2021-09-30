@@ -1,16 +1,16 @@
+import 'package:app/components/fading.dart';
 import 'package:app/data/local.dart';
-import 'package:app/fading.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class LocalityPage extends StatefulWidget {
-  const LocalityPage({Key key}) : super(key: key);
+class LocalPage extends StatefulWidget {
+  const LocalPage({Key key}) : super(key: key);
 
   @override
-  _LocalityPageState createState() => _LocalityPageState();
+  _LocalPageState createState() => _LocalPageState();
 }
 
-class _LocalityPageState extends State<LocalityPage> {
+class _LocalPageState extends State<LocalPage> {
   String dropdownvalue = '5';
   var items = ['1', '5', '10', '15'];
   @override

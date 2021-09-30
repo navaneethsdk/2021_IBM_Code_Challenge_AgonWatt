@@ -1,7 +1,7 @@
-import 'package:app/login_screen.dart';
-import 'package:app/profile_page.dart';
-import 'package:app/locality.dart';
-import 'package:app/regional.dart';
+import 'package:app/screens/login_screen.dart';
+import 'package:app/screens/profile_page.dart';
+import 'package:app/screens/local.dart';
+import 'package:app/screens/city.dart';
 import 'package:app/screens/dashboard.dart';
 import 'package:flutter/material.dart';
 
@@ -34,12 +34,10 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
-    MainPage(),
-    LocalityPage(),
-    RegionalPage(),
+   Dashboard(),
+   LocalPage(),
+   CityPage(),
   ];
   void _onItemTapped(int index) {
     setState(() {
