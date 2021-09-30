@@ -1,7 +1,7 @@
-import 'package:app/login_screen.dart';
-import 'package:app/profile_page.dart';
-import 'package:app/locality.dart';
-import 'package:app/regional.dart';
+import 'screens/login_screen.dart';
+import 'package:app/screens/profile_page.dart';
+import 'package:app/screens/local.dart';
+import 'package:app/screens/city.dart';
 import 'package:app/screens/dashboard.dart';
 import 'package:flutter/material.dart';
 
@@ -13,10 +13,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'AgonWatt',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         backgroundColor: Colors.white,
+        primaryColor: Colors.blue[700],
       ),
       debugShowCheckedModeBanner: false,
       home: LoginScreen(),
@@ -34,12 +35,10 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
-    MainPage(),
-    LocalityPage(),
-    RegionalPage(),
+    Dashboard(),
+    LocalPage(),
+    CityPage(),
   ];
   void _onItemTapped(int index) {
     setState(() {
@@ -52,7 +51,6 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        leading: SizedBox(),
         title: Text(
           widget.title,
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.w300),
@@ -72,7 +70,9 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.all(8.0),
               child: CircleAvatar(
                 radius: 25.0,
-                backgroundImage: AssetImage('assets/images/1.jpg'),
+                backgroundImage: NetworkImage(
+                  "https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg",
+                ),
               ),
             ),
           ),
@@ -85,20 +85,20 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.white,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Dash 1',
+            icon: Icon(Icons.show_chart),
+            label: 'Consumption',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.show_chart_sharp),
+            icon: Icon(Icons.leaderboard),
             label: 'Local',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.leaderboard),
-            label: 'Regional',
+            label: 'City',
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Color.fromRGBO(0, 0, 128, 1),
+        selectedItemColor: Color.fromRGBO(52, 68, 217, 1),
         onTap: _onItemTapped,
       ),
     );

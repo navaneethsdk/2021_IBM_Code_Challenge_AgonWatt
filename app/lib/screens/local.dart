@@ -1,16 +1,16 @@
+import 'package:app/components/fading.dart';
 import 'package:app/data/local.dart';
-import 'package:app/fading.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class LocalityPage extends StatefulWidget {
-  const LocalityPage({Key key}) : super(key: key);
+class LocalPage extends StatefulWidget {
+  const LocalPage({Key key}) : super(key: key);
 
   @override
-  _LocalityPageState createState() => _LocalityPageState();
+  _LocalPageState createState() => _LocalPageState();
 }
 
-class _LocalityPageState extends State<LocalityPage> {
+class _LocalPageState extends State<LocalPage> {
   String dropdownvalue = '5';
   var items = ['1', '5', '10', '15'];
   @override
@@ -60,6 +60,7 @@ class _LocalityPageState extends State<LocalityPage> {
                                 fontSize: 20,
                                 fontWeight: FontWeight.w500),
                           ),
+                          SizedBox(height: 10),
                           DropdownButton(
                             underline: SizedBox(),
                             value: dropdownvalue,
@@ -74,6 +75,7 @@ class _LocalityPageState extends State<LocalityPage> {
                               });
                             },
                           ),
+                          SizedBox(height: 15),
                           Card(
                             elevation: 4.0,
                             child: Column(
@@ -97,25 +99,39 @@ class _LocalityPageState extends State<LocalityPage> {
                               ],
                             ),
                           ),
-                          Text(
-                            "\nAugust 2021",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w300),
-                          ),
-                          SizedBox(
-                            height: 15,
-                          )
                         ],
                       ),
                     ),
                     Image.asset(
                       'assets/images/local.png',
-                      height: 120,
-                      width: 200,
+                      height: 220,
+                      width: 220,
+                      fit: BoxFit.fill,
                     ),
                   ],
+                ),
+                Container(
+                  padding: EdgeInsets.all(20),
+                  width: MediaQuery.of(context).size.width,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "August 2021",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w300),
+                      ),
+                      Text(
+                        "Coins  ",
+                        style: TextStyle(
+                            color: Colors.blue[900],
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500),
+                      ),
+                    ],
+                  ),
                 ),
                 ListView.builder(
                     itemCount: local.length,
@@ -136,18 +152,28 @@ class _LocalityPageState extends State<LocalityPage> {
                               backgroundImage: AssetImage(
                                   'assets/images/${((index + 1) % 10) == 0 ? 1 : (index + 1) % 10}.jpg'),
                             ),
-                            title: Text(
-                              "${index + 1}. " + local[index].name,
-                              style: TextStyle(
-                                  fontSize: index < 3 ? 20 : 18,
-                                  fontWeight: index < 3
-                                      ? FontWeight.w500
-                                      : FontWeight.normal),
+                            title: RichText(
+                              text: TextSpan(
+                                style: DefaultTextStyle.of(context).style,
+                                children: <TextSpan>[
+                                  TextSpan(
+                                    text: "${index + 1}. ",
+                                    style: TextStyle(fontSize: 19),
+                                  ),
+                                  TextSpan(
+                                      text: "CT" + local[index].consumerid,
+                                      style: TextStyle(
+                                          fontSize: index < 3 ? 16 : 14,
+                                          fontWeight: index < 3
+                                              ? FontWeight.w500
+                                              : FontWeight.normal)),
+                                ],
+                              ),
                             ),
                             subtitle: Text(
                               local[index].tu.toString() + " KWh",
                               style: TextStyle(
-                                  fontSize: 12, fontWeight: FontWeight.normal),
+                                  fontSize: 17, fontWeight: FontWeight.normal),
                             ),
                             trailing: Text(
                               local[index].y.toString(),

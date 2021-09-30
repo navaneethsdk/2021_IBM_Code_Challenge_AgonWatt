@@ -1,11 +1,10 @@
-
+import 'package:app/components/fading.dart';
 import 'package:app/data/local.dart';
-import 'package:app/fading.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class RegionalPage extends StatelessWidget {
-  const RegionalPage({Key key}) : super(key: key);
+class CityPage extends StatelessWidget {
+  const CityPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +14,7 @@ class RegionalPage extends StatelessWidget {
       data.add(Data.fromJson(dataJson));
     }
     data.sort((b, a) => a.y.compareTo(b.y));
-    List<Data> local =
-        data.where((element) => element.locality == data[1].locality).toList();
+    List<Data> local = data;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -33,18 +31,11 @@ class RegionalPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Regional Leaderboard\n${local[0].locality}",
+                        "City Leaderboard\n\nKochi",
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 20,
                             fontWeight: FontWeight.w500),
-                      ),
-                      Text(
-                        "\nAugust 2021",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w300),
                       ),
                     ],
                   ),
@@ -55,6 +46,29 @@ class RegionalPage extends StatelessWidget {
                   width: 200,
                 ),
               ],
+            ),
+            Container(
+              padding: EdgeInsets.all(20),
+              width: MediaQuery.of(context).size.width,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "August 2021",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w300),
+                  ),
+                  Text(
+                    "Coins  ",
+                    style: TextStyle(
+                        color: Colors.blue[900],
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500),
+                  ),
+                ],
+              ),
             ),
             ListView.builder(
                 itemCount: local.length,
@@ -75,18 +89,28 @@ class RegionalPage extends StatelessWidget {
                           backgroundImage: AssetImage(
                               'assets/images/${((index + 1) % 10) == 0 ? 1 : (index + 1) % 10}.jpg'),
                         ),
-                        title: Text(
-                          "${index + 1}. " + local[index].name,
-                          style: TextStyle(
-                              fontSize: index < 3 ? 20 : 18,
-                              fontWeight: index < 3
-                                  ? FontWeight.w500
-                                  : FontWeight.normal),
+                        title: RichText(
+                          text: TextSpan(
+                            style: DefaultTextStyle.of(context).style,
+                            children: <TextSpan>[
+                              TextSpan(
+                                text: "${index + 1}. ",
+                                style: TextStyle(fontSize: 19),
+                              ),
+                              TextSpan(
+                                  text: "CT" + local[index].consumerid,
+                                  style: TextStyle(
+                                      fontSize: index < 3 ? 16 : 14,
+                                      fontWeight: index < 3
+                                          ? FontWeight.w500
+                                          : FontWeight.normal)),
+                            ],
+                          ),
                         ),
                         subtitle: Text(
                           local[index].tu.toString() + " KWh",
                           style: TextStyle(
-                              fontSize: 12, fontWeight: FontWeight.normal),
+                              fontSize: 17, fontWeight: FontWeight.normal),
                         ),
                         trailing: Text(
                           local[index].y.toString(),
