@@ -15,7 +15,7 @@ Globally, the primary source of greenhouse gas emissions is electricity and heat
 End user consists of people who wish to reduce their energy bills and inturn their carbon footprints.
 
 ## Architecture
-![Architecture](./images/AgonWatt.png)
+![Architecture](./images/AgonWatt1.png)
 
 
 Three level Architecture:
