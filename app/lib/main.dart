@@ -1,4 +1,4 @@
-import 'package:app/screens/login_screen.dart';
+import 'screens/login_screen.dart';
 import 'package:app/screens/profile_page.dart';
 import 'package:app/screens/local.dart';
 import 'package:app/screens/city.dart';

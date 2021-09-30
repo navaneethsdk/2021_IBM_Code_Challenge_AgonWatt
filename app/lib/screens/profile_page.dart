@@ -137,9 +137,9 @@ class ProfilePage extends StatelessWidget {
                   Text(
                     "Instructions to use the Credits",
                     style: TextStyle(
-                        color: Colors.black54,
-                        fontStyle: FontStyle.normal,
-                        fontSize: 18.0),
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w300),
                   ),
                   SizedBox(
                     height: 10,
@@ -186,12 +186,28 @@ class ProfilePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(
-                      " Credits and Rewards",
-                      style: TextStyle(
-                          color: Colors.black54,
-                          fontStyle: FontStyle.normal,
-                          fontSize: 18.0),
+                    Container(
+                      padding: EdgeInsets.all(20),
+                      width: MediaQuery.of(context).size.width,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Credits & Rewards",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w300),
+                          ),
+                          Text(
+                            "Coins  ",
+                            style: TextStyle(
+                                color: Colors.blue[900],
+                                fontSize: 20,
+                                fontWeight: FontWeight.w500),
+                          ),
+                        ],
+                      ),
                     ),
                     SizedBox(
                       height: 10.0,
