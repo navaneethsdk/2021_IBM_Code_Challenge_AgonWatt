@@ -70,7 +70,9 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.all(8.0),
               child: CircleAvatar(
                 radius: 25.0,
-                backgroundImage: AssetImage('assets/images/1.jpg'),
+                backgroundImage: NetworkImage(
+                  "https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg",
+                ),
               ),
             ),
           ),

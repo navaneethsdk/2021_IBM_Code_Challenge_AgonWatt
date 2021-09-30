@@ -31,7 +31,7 @@ class CityPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "City Leaderboard\nKochi",
+                        "City Leaderboard\n\nKochi",
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 20,
@@ -61,7 +61,7 @@ class CityPage extends StatelessWidget {
                         fontWeight: FontWeight.w300),
                   ),
                   Text(
-                    "Points  ",
+                    "Coins  ",
                     style: TextStyle(
                         color: Colors.blue[900],
                         fontSize: 20,
@@ -89,13 +89,23 @@ class CityPage extends StatelessWidget {
                           backgroundImage: AssetImage(
                               'assets/images/${((index + 1) % 10) == 0 ? 1 : (index + 1) % 10}.jpg'),
                         ),
-                        title: Text(
-                          "${index + 1}. " + local[index].consumerid,
-                          style: TextStyle(
-                              fontSize: index < 3 ? 20 : 18,
-                              fontWeight: index < 3
-                                  ? FontWeight.w500
-                                  : FontWeight.normal),
+                        title: RichText(
+                          text: TextSpan(
+                            style: DefaultTextStyle.of(context).style,
+                            children: <TextSpan>[
+                              TextSpan(
+                                text: "${index + 1}. ",
+                                style: TextStyle(fontSize: 19),
+                              ),
+                              TextSpan(
+                                  text: "CT" + local[index].consumerid,
+                                  style: TextStyle(
+                                      fontSize: index < 3 ? 16 : 14,
+                                      fontWeight: index < 3
+                                          ? FontWeight.w500
+                                          : FontWeight.normal)),
+                            ],
+                          ),
                         ),
                         subtitle: Text(
                           local[index].tu.toString() + " KWh",

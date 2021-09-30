@@ -60,6 +60,7 @@ class _LocalPageState extends State<LocalPage> {
                                 fontSize: 20,
                                 fontWeight: FontWeight.w500),
                           ),
+                          SizedBox(height: 10),
                           DropdownButton(
                             underline: SizedBox(),
                             value: dropdownvalue,
@@ -74,6 +75,7 @@ class _LocalPageState extends State<LocalPage> {
                               });
                             },
                           ),
+                          SizedBox(height: 15),
                           Card(
                             elevation: 4.0,
                             child: Column(
@@ -102,7 +104,7 @@ class _LocalPageState extends State<LocalPage> {
                     ),
                     Image.asset(
                       'assets/images/local.png',
-                      height: 230,
+                      height: 220,
                       width: 220,
                       fit: BoxFit.fill,
                     ),
@@ -122,7 +124,7 @@ class _LocalPageState extends State<LocalPage> {
                             fontWeight: FontWeight.w300),
                       ),
                       Text(
-                        "Points  ",
+                        "Coins  ",
                         style: TextStyle(
                             color: Colors.blue[900],
                             fontSize: 20,
@@ -150,13 +152,23 @@ class _LocalPageState extends State<LocalPage> {
                               backgroundImage: AssetImage(
                                   'assets/images/${((index + 1) % 10) == 0 ? 1 : (index + 1) % 10}.jpg'),
                             ),
-                            title: Text(
-                              "${index + 1}. " + local[index].consumerid,
-                              style: TextStyle(
-                                  fontSize: index < 3 ? 20 : 18,
-                                  fontWeight: index < 3
-                                      ? FontWeight.w500
-                                      : FontWeight.normal),
+                            title: RichText(
+                              text: TextSpan(
+                                style: DefaultTextStyle.of(context).style,
+                                children: <TextSpan>[
+                                  TextSpan(
+                                    text: "${index + 1}. ",
+                                    style: TextStyle(fontSize: 19),
+                                  ),
+                                  TextSpan(
+                                      text: "CT" + local[index].consumerid,
+                                      style: TextStyle(
+                                          fontSize: index < 3 ? 16 : 14,
+                                          fontWeight: index < 3
+                                              ? FontWeight.w500
+                                              : FontWeight.normal)),
+                                ],
+                              ),
                             ),
                             subtitle: Text(
                               local[index].tu.toString() + " KWh",
