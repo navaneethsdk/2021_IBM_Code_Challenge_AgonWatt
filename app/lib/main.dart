@@ -12,7 +12,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        backgroundColor: Colors.white,
       ),
+      debugShowCheckedModeBanner: false,
       home: MyHomePage(title: 'AgonWatt'),
     );
   }
@@ -51,28 +53,34 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(
+          widget.title,
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w300),
+        ),
+        backgroundColor: Colors.white,
+        elevation: 0,
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Dash 1',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Dash 2',
+            icon: Icon(Icons.leaderboard),
+            label: 'Local',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
+            icon: Icon(Icons.card_giftcard),
             label: 'Dash 3',
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Color.fromRGBO(0, 0, 128, 1),
         onTap: _onItemTapped,
       ),
     );
