@@ -148,71 +148,71 @@ class _MainPageState extends State<MainPage> {
                     ],
                   ),
                   Padding(padding: EdgeInsets.only(bottom: 4.0)),
-                  LineChart(
-                    LineChartData(
-                      minX: 0,
-                      maxX: 11,
-                      minY: 0,
-                      maxY: 6,
-                      // titlesData: LineTitles.getTitleData(),
-                      // gridData: FlGridData(
-                      //   show: true,
-                      //   getDrawingHorizontalLine: (value) {
-                      //     return FlLine(
-                      //       color: const Color(0xff37434d),
-                      //       strokeWidth: 1,
-                      //     );
-                      //   },
-                      //   drawVerticalLine: true,
-                      //   getDrawingVerticalLine: (value) {
-                      //     return FlLine(
-                      //       color: const Color(0xff37434d),
-                      //       strokeWidth: 1,
-                      //     );
-                      //   },
-                      // ),
-                      // borderData: FlBorderData(
-                      //   show: true,
-                      //   border: Border.all(
-                      //       color: const Color(0xff37434d), width: 1),
-                      // ),
-                      lineBarsData: [
-                        LineChartBarData(
-                          spots: [
-                            FlSpot(0, 3),
-                            FlSpot(2.6, 2),
-                            FlSpot(4.9, 5),
-                            FlSpot(6.8, 2.5),
-                            FlSpot(8, 4),
-                            FlSpot(9.5, 3),
-                            FlSpot(11, 4),
-                          ],
-                          isCurved: true,
-                          colors: gradientColors,
-                          barWidth: 5,
-                          // dotData: FlDotData(show: false),
-                          belowBarData: BarAreaData(
-                            show: true,
-                            colors: gradientColors
-                                .map((color) => color.withOpacity(0.3))
-                                .toList(),
-                          ),
-                        ),
-                      ],
-                    ),
-                  )
-                  // Sparkline(
-                  //   data: charts[actualChart],
-                  //   lineWidth: 2.0,
-                  //   lineColor: Colors.greenAccent,
-                  //   pointsMode: PointsMode.all,
-                  //   pointSize: 4,
-                  //   fillMode: FillMode.below,
-                  //   fillGradient: LinearGradient(
-                  //       begin: Alignment.topCenter,
-                  //       end: Alignment.bottomCenter,
-                  //       colors: [Colors.amber[200], Colors.amber[400]]),
+                  // LineChart(
+                  //   LineChartData(
+                  //     minX: 0,
+                  //     maxX: 11,
+                  //     minY: 0,
+                  //     maxY: 6,
+                  //     // titlesData: LineTitles.getTitleData(),
+                  //     // gridData: FlGridData(
+                  //     //   show: true,
+                  //     //   getDrawingHorizontalLine: (value) {
+                  //     //     return FlLine(
+                  //     //       color: const Color(0xff37434d),
+                  //     //       strokeWidth: 1,
+                  //     //     );
+                  //     //   },
+                  //     //   drawVerticalLine: true,
+                  //     //   getDrawingVerticalLine: (value) {
+                  //     //     return FlLine(
+                  //     //       color: const Color(0xff37434d),
+                  //     //       strokeWidth: 1,
+                  //     //     );
+                  //     //   },
+                  //     // ),
+                  //     // borderData: FlBorderData(
+                  //     //   show: true,
+                  //     //   border: Border.all(
+                  //     //       color: const Color(0xff37434d), width: 1),
+                  //     // ),
+                  //     lineBarsData: [
+                  //       LineChartBarData(
+                  //         spots: [
+                  //           FlSpot(0, 3),
+                  //           FlSpot(2.6, 2),
+                  //           FlSpot(4.9, 5),
+                  //           FlSpot(6.8, 2.5),
+                  //           FlSpot(8, 4),
+                  //           FlSpot(9.5, 3),
+                  //           FlSpot(11, 4),
+                  //         ],
+                  //         isCurved: true,
+                  //         colors: gradientColors,
+                  //         barWidth: 5,
+                  //         // dotData: FlDotData(show: false),
+                  //         belowBarData: BarAreaData(
+                  //           show: true,
+                  //           colors: gradientColors
+                  //               .map((color) => color.withOpacity(0.3))
+                  //               .toList(),
+                  //         ),
+                  //       ),
+                  //     ],
+                  //   ),
                   // )
+                  Sparkline(
+                    data: charts[actualChart],
+                    lineWidth: 2.0,
+                    lineColor: Colors.greenAccent,
+                    pointsMode: PointsMode.all,
+                    pointSize: 4,
+                    fillMode: FillMode.below,
+                    fillGradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [Colors.amber[200], Colors.amber[400]]),
+                  )
                 ],
               )),
         ),
@@ -267,7 +267,7 @@ class _MainPageState extends State<MainPage> {
         ),
         _buildTile(
           Padding(
-            padding: const EdgeInsets.all(24.0),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -277,7 +277,7 @@ class _MainPageState extends State<MainPage> {
                       shape: CircleBorder(),
                       child: Padding(
                         padding: EdgeInsets.all(16.0),
-                        child: Icon(Icons.notifications,
+                        child: Icon(Icons.assessment_sharp,
                             color: Colors.white, size: 30.0),
                       )),
                   Padding(padding: EdgeInsets.only(bottom: 16.0)),
