@@ -17,6 +17,7 @@ class _MainPageState extends State<MainPage> {
     const Color(0xff23b6e6),
     const Color(0xff02d39a),
   ];
+
   final List<PiData> chartData = [
     PiData('Ac', 10),
     PiData('fridge', 30),
@@ -267,7 +268,7 @@ class _MainPageState extends State<MainPage> {
         ),
         _buildTile(
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -281,12 +282,17 @@ class _MainPageState extends State<MainPage> {
                             color: Colors.white, size: 30.0),
                       )),
                   Padding(padding: EdgeInsets.only(bottom: 16.0)),
-                  Text('Alerts',
+                  Text('perfomance',
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w700,
-                          fontSize: 24.0)),
-                  Text('All ', style: TextStyle(color: Colors.black45)),
+                          fontSize: 20.0)),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 13),
+                    child: Text(
+                        'Your Consumption is 26 % higher than previous month ',
+                        style: TextStyle(color: Colors.black45)),
+                  ),
                 ]),
           ),
         ),
