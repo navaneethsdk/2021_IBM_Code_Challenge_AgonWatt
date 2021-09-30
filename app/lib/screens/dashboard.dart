@@ -1,11 +1,9 @@
-import 'package:app/screens/titles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_sparkline/flutter_sparkline.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:fl_chart/fl_chart.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -25,27 +23,8 @@ class _MainPageState extends State<MainPage> {
     PiData('Fan', 40),
   ];
   final List<List<double>> charts = [
-    [
-      15,
-      10,
-      30,
-      24,
-      50,
-    ],
-    [
-      0.0,
-      0.3,
-      0.7,
-      0.6,
-      0.55,
-      0.8,
-      1.2,
-      1.3,
-      1.35,
-      0.9,
-      1.5,
-      1.7,
-    ],
+    [15, 10, 30, 24, 50],
+    [0.0, 0.3, 0.7, 0.6, 0.55, 0.8, 1.2, 1.3, 1.35, 0.9, 1.5, 1.7],
     [
       0.0,
       0.3,
@@ -84,7 +63,7 @@ class _MainPageState extends State<MainPage> {
       0.3,
       0.7,
       0.6,
-      0.55,
+      0.55
     ]
   ];
 
