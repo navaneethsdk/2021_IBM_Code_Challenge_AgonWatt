@@ -1,4 +1,5 @@
 import 'package:app/locality.dart';
+import 'package:app/regional.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -38,10 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
       style: optionStyle,
     ),
     LocalityPage(),
-    Text(
-      'Dash 3',
-      style: optionStyle,
-    ),
+    RegionalPage(),
   ];
   void _onItemTapped(int index) {
     setState(() {
@@ -71,12 +69,12 @@ class _MyHomePageState extends State<MyHomePage> {
             label: 'Dash 1',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.leaderboard),
+            icon: Icon(Icons.show_chart_sharp),
             label: 'Local',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.card_giftcard),
-            label: 'Dash 3',
+            icon: Icon(Icons.leaderboard),
+            label: 'Regional',
           ),
         ],
         currentIndex: _selectedIndex,
