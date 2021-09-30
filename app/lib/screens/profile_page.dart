@@ -46,6 +46,7 @@ class ProfilePage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 22.0,
                             color: Colors.black,
+                            fontWeight: FontWeight.w300,
                           ),
                         ),
                         Padding(
@@ -55,6 +56,7 @@ class ProfilePage extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 15.0,
                               color: Colors.black54,
+                              fontWeight: FontWeight.w300,
                             ),
                           ),
                         ),
@@ -90,6 +92,7 @@ class ProfilePage extends StatelessWidget {
                                         "Total Coins",
                                         style: TextStyle(
                                           fontSize: 18.0,
+                                          fontWeight: FontWeight.w300,
                                           color: Colors.blue[700],
                                         ),
                                       ),
@@ -113,6 +116,7 @@ class ProfilePage extends StatelessWidget {
                                       Text(
                                         "City Rank",
                                         style: TextStyle(
+                                          fontWeight: FontWeight.w300,
                                           fontSize: 18.0,
                                           color: Colors.blue[700],
                                         ),
@@ -135,7 +139,7 @@ class ProfilePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    "Instructions to use the Credits",
+                    "Instructions to use the Coins",
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 20,
@@ -148,6 +152,7 @@ class ProfilePage extends StatelessWidget {
                     "1. You can actually redeem the credits by clicking the below button\n\n2. To redeem the credits you have to try to find items that can be bought with the coins that you have .",
                     style: TextStyle(
                         color: Colors.black54,
+                        fontWeight: FontWeight.w300,
                         fontStyle: FontStyle.normal,
                         fontSize: 16.0),
                   ),
@@ -168,7 +173,7 @@ class ProfilePage extends StatelessWidget {
                   constraints: BoxConstraints(maxWidth: 300.0, minHeight: 50.0),
                   alignment: Alignment.center,
                   child: Text(
-                    "Redeem Credit",
+                    "Redeem Coins",
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 26.0,
@@ -193,14 +198,14 @@ class ProfilePage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "Credits & Rewards",
+                            "My Rewards",
                             style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 20,
                                 fontWeight: FontWeight.w300),
                           ),
                           Text(
-                            "Coins  ",
+                            "Score  ",
                             style: TextStyle(
                                 color: Colors.blue[900],
                                 fontSize: 20,

@@ -267,7 +267,7 @@ class _MainPageState extends State<Dashboard> {
                         ],
                       ),
                       Material(
-                          color: Colors.blueGrey,
+                          color: Color.fromRGBO(92, 116, 255, 1),
                           borderRadius: BorderRadius.circular(8.0),
                           child: Center(
                               child: Padding(

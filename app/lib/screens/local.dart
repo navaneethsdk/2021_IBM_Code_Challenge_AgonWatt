@@ -67,7 +67,12 @@ class _LocalPageState extends State<LocalPage> {
                             icon: Icon(Icons.keyboard_arrow_down),
                             items: items.map((String items) {
                               return DropdownMenuItem(
-                                  value: items, child: Text(items + " Km "));
+                                  value: items,
+                                  child: Text(
+                                    items + " Km ",
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w300),
+                                  ));
                             }).toList(),
                             onChanged: (String newValue) {
                               setState(() {
@@ -76,8 +81,9 @@ class _LocalPageState extends State<LocalPage> {
                             },
                           ),
                           SizedBox(height: 15),
-                          Card(
-                            elevation: 4.0,
+                          Material(
+                            elevation: 14.0,
+                            shadowColor: Color(0x802196F3),
                             child: Column(
                               children: [
                                 Container(
@@ -94,7 +100,13 @@ class _LocalPageState extends State<LocalPage> {
                                 Container(
                                   padding: EdgeInsets.all(10.0),
                                   alignment: Alignment.centerLeft,
-                                  child: Text("Average Consumption"),
+                                  child: Text(
+                                    "Average Consumption",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w300),
+                                  ),
                                 ),
                               ],
                             ),
@@ -124,7 +136,7 @@ class _LocalPageState extends State<LocalPage> {
                             fontWeight: FontWeight.w300),
                       ),
                       Text(
-                        "Coins  ",
+                        "Score  ",
                         style: TextStyle(
                             color: Colors.blue[900],
                             fontSize: 20,
@@ -165,15 +177,15 @@ class _LocalPageState extends State<LocalPage> {
                                       style: TextStyle(
                                           fontSize: index < 3 ? 16 : 14,
                                           fontWeight: index < 3
-                                              ? FontWeight.w500
-                                              : FontWeight.normal)),
+                                              ? FontWeight.w400
+                                              : FontWeight.w300)),
                                 ],
                               ),
                             ),
                             subtitle: Text(
                               local[index].tu.toString() + " KWh",
                               style: TextStyle(
-                                  fontSize: 17, fontWeight: FontWeight.normal),
+                                  fontSize: 17, fontWeight: FontWeight.w300),
                             ),
                             trailing: Text(
                               local[index].y.toString(),
