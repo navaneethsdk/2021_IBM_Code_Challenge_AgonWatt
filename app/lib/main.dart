@@ -1,3 +1,4 @@
+import 'package:app/login_screen.dart';
 import 'package:app/profile_page.dart';
 import 'package:flutter/material.dart';
 
@@ -59,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ElevatedButton(
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => ProfilePage(),
+                builder: (context) => LoginScreen(),
               ));
             },
             child: Text("GO"),
